@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
+import Jimp = require('jimp');
+
 (async () => {
 
   // Init the Express application
@@ -30,7 +32,18 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   /**************************************************************************** */
 
   //! END @TODO1
-  
+  app.get( "/filteredimage", async ( req, res ) => {
+    let { image_url } = req.query;
+
+    if (!image_url) {
+      return res.status(400).send({ auth: false, message: 'image_url is required.' });
+    }
+
+    let filteredPath = await filterImageFromURL(image_url);
+    res.status(200).sendFile(filteredPath, () => { deleteLocalFiles([filteredPath]); });
+  } );
+
+
   // Root Endpoint
   // Displays a simple message to the user
   app.get( "/", async ( req, res ) => {
