@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import { config } from './config/config';
 
 import Jimp = require('jimp');
 
@@ -14,6 +15,8 @@ import Jimp = require('jimp');
   
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
+
+  const cfg = config.dev;
 
   // @TODO1 IMPLEMENT A RESTFUL ENDPOINT
   // GET /filteredimage?image_url={{URL}}
@@ -35,8 +38,14 @@ import Jimp = require('jimp');
   app.get( "/filteredimage", async ( req, res ) => {
     let { image_url } = req.query;
 
+    let apiKey = req.header("X-API-Key");
+
+    if(!apiKey || apiKey != cfg.api_key ){
+      return res.status(401).send({ auth: false, message: 'Invalid api key.' });
+    }
+
     if (!image_url) {
-      return res.status(400).send({ auth: false, message: 'image_url is required.' });
+      return res.status(400).send({ auth: true, message: 'image_url is required.' });
     }
 
     let filteredPath = await filterImageFromURL(image_url);
