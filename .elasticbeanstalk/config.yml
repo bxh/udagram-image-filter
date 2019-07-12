@@ -2,8 +2,14 @@ branch-defaults:
   dev:
     environment: udagram-filter-dev
     group_suffix: null
+  master:
+    environment: udagram-filter-prod
 deploy:
   artifact: ./www/Archive.zip
+environment-defaults:
+  udagram-filter-dev:
+    branch: null
+    repository: null
 global:
   application_name: udagram-filter
   branch: null

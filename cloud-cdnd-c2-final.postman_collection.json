@@ -74,15 +74,15 @@
 	],
 	"variable": [
 		{
-			"id": "e23c48b6-3615-498e-bfef-be5aea0e5f9a",
+			"id": "0d1f02f5-8263-4dd4-906d-0884cc8c1ad9",
 			"key": "HOST",
-			"value": "udagram-filter-dev.us-east-1.elasticbeanstalk.com",
+			"value": "udagram-filter-prod.us-east-1.elasticbeanstalk.com",
 			"type": "string"
 		},
 		{
-			"id": "26c484bf-84df-41fe-9e76-f57561635a86",
+			"id": "d3d64fe9-9356-4cd8-a879-dbda3e6af1ad",
 			"key": "API_KEY",
-			"value": "4b82cd49-d34d-4676-93ca-ad1ab9c0fb20",
+			"value": "715930b0-bdda-4715-8f3c-7211cd11a389",
 			"type": "string"
 		}
 	]
