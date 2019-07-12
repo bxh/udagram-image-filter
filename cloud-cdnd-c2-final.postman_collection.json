@@ -7,12 +7,26 @@
 	"item": [
 		{
 			"name": "http://localhost:8082/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4338564c-5d54-4794-9b18-abfb37c3d027",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "x-api-key",
-						"value": "test",
+						"value": "{{API_KEY}}",
 						"type": "text"
 					}
 				],
@@ -60,9 +74,15 @@
 	],
 	"variable": [
 		{
-			"id": "1df3d31a-de30-494b-a3d0-f1228dd8713c",
+			"id": "e23c48b6-3615-498e-bfef-be5aea0e5f9a",
 			"key": "HOST",
-			"value": "localhost:8082",
+			"value": "udagram-filter-dev.us-east-1.elasticbeanstalk.com",
+			"type": "string"
+		},
+		{
+			"id": "26c484bf-84df-41fe-9e76-f57561635a86",
+			"key": "API_KEY",
+			"value": "4b82cd49-d34d-4676-93ca-ad1ab9c0fb20",
 			"type": "string"
 		}
 	]

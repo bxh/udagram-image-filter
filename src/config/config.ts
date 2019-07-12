@@ -1,9 +1,4 @@
 export const config = {
-    "dev": {
-      "api_key": "test",
-    },
-    "prod": {
-      "api_key": ""
-    }
-  }
+    "api_key": process.env.UDAGRAM_API_KEY
+}
   
