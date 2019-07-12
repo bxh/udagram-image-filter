@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8082/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+			"name": "Authorized Fetch",
 			"event": [
 				{
 					"listen": "test",
@@ -48,6 +48,29 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Unauthorized Fetch",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "No API key attached in headers"
+			},
+			"response": []
+		},
+		{
+			"name": "Missing query string",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -74,13 +97,13 @@
 	],
 	"variable": [
 		{
-			"id": "0d1f02f5-8263-4dd4-906d-0884cc8c1ad9",
+			"id": "0cca099c-ab8e-49da-8086-e8a9c733a3f0",
 			"key": "HOST",
-			"value": "udagram-filter-prod.us-east-1.elasticbeanstalk.com",
+			"value": "udagram-filter.us-east-1.elasticbeanstalk.com",
 			"type": "string"
 		},
 		{
-			"id": "d3d64fe9-9356-4cd8-a879-dbda3e6af1ad",
+			"id": "fb0ae369-9c50-4b92-80de-ad4e7b0615ec",
 			"key": "API_KEY",
 			"value": "715930b0-bdda-4715-8f3c-7211cd11a389",
 			"type": "string"
