@@ -17,7 +17,7 @@ import Jimp = require('jimp');
   app.use(bodyParser.json());
 
   const cfg = config;
-
+  
   // Image filtering Endpoint
   // Returns a filtered image to the user
   app.get( "/filteredimage", async ( req, res ) => {
